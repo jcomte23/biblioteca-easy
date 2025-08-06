@@ -12,6 +12,7 @@
     "vite": "^7.0.4"
   },
   "dependencies": {
+    "csv-parser": "^3.2.0",
     "mysql2": "^3.14.3"
   }
 }
