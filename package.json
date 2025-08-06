@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "vite": "^7.0.4"
+  },
+  "dependencies": {
+    "mysql2": "^3.14.3"
   }
 }
