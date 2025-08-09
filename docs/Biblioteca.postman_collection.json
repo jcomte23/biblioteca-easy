@@ -1,0 +1,349 @@
+{
+	"info": {
+		"_postman_id": "6d2c5d80-798f-4662-93f8-869427c34427",
+		"name": "Biblioteca",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35040074"
+	},
+	"item": [
+		{
+			"name": "CRUD prestamos",
+			"item": [
+				{
+					"name": "Traer a todos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/prestamos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"prestamos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer a uno",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/prestamos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"prestamos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear uno",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id_usuario\": 1,\n    \"isbn\": \"978-0-609-15622-3\",\n    \"fecha_prestamo\": \"2025-07-28\",\n    \"fecha_devolucion\": \"2025-08-28\",\n    \"estado\": \"entregado\" // entregado - activo - retrasado\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/prestamos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"prestamos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actulizar uno",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id_usuario\": 1,\n    \"isbn\": \"978-0-609-15622-3\",\n    \"fecha_prestamo\": \"2025-07-28\",\n    \"fecha_devolucion\": \"2025-08-28\",\n    \"estado\": \"entregado\" // entregado - activo - retrasado\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/prestamos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"prestamos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete uno",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/prestamos/32",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"prestamos",
+								"32"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ver todos los préstamos de un usuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_usuario\": 1,\n    \"isbn\": \"978-0-609-15622-3\",\n    \"fecha_prestamo\": \"2025-07-28\",\n    \"fecha_devolucion\": \"2025-08-28\",\n    \"estado\": \"entregado\" // entregado - activo - retrasado\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/prestamos/usuario/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"prestamos",
+						"usuario",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar los 5 libros más prestados",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_usuario\": 1,\n    \"isbn\": \"978-0-609-15622-3\",\n    \"fecha_prestamo\": \"2025-07-28\",\n    \"fecha_devolucion\": \"2025-08-28\",\n    \"estado\": \"entregado\" // entregado - activo - retrasado\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/libros/mas-prestados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"libros",
+						"mas-prestados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar usuarios con préstamos en estado \"retrasado\"",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_usuario\": 1,\n    \"isbn\": \"978-0-609-15622-3\",\n    \"fecha_prestamo\": \"2025-07-28\",\n    \"fecha_devolucion\": \"2025-08-28\",\n    \"estado\": \"entregado\" // entregado - activo - retrasado\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuarios/con-retrasos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"con-retrasos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar préstamos activos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_usuario\": 1,\n    \"isbn\": \"978-0-609-15622-3\",\n    \"fecha_prestamo\": \"2025-07-28\",\n    \"fecha_devolucion\": \"2025-08-28\",\n    \"estado\": \"entregado\" // entregado - activo - retrasado\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/prestamos/activos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"prestamos",
+						"activos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Historial de un libro por su ISBN",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_usuario\": 1,\n    \"isbn\": \"978-0-609-15622-3\",\n    \"fecha_prestamo\": \"2025-07-28\",\n    \"fecha_devolucion\": \"2025-08-28\",\n    \"estado\": \"entregado\" // entregado - activo - retrasado\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/prestamos/historial/:isbn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"prestamos",
+						"historial",
+						":isbn"
+					],
+					"variable": [
+						{
+							"key": "isbn",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
